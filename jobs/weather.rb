@@ -18,7 +18,7 @@ SCHEDULER.every '1s', :first_in => 0 do |job|
   weather_location = XmlSimple.xml_in(response.body, { 'ForceArray' => false })['channel']['location']
   send_event('weather', { :temp => "#{weather_data['temp']}&deg;#{format.upcase}",
                           :condition => weather_data['text'],
-                          :title => "#{weather_location['city']} Weather",
+                          :title => "#{weather_location['city']}",
                           :climacon => climacon_class(weather_data['code'])})
 end
 
