@@ -26,25 +26,19 @@
         </li>
 
         <!-- Seinfeld GIFs -->
-        <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
-            <div data-id="seinfeld" data-view="Seinfeld"></div>
+        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+            <div data-id="seinfeld" data-view="Seinfeld" ></div>
         </li>
 
         <!-- Trello boards -->
-		<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-          <div data-id="board 1" data-view="List" data-title="Board 1"></div>
-          <i class="icon-trello icon-background"></i>
-        </li>
-
-        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-            <div data-id="board 2" data-view="List" data-title="Board 2"></div>
-            <i class="icon-trello icon-background"></i>
-        </li>
-
-        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-            <div data-id="board 3" data-view="List" data-title="Board 3"></div>
-            <i class="icon-trello icon-background"></i>
-        </li>
+        <!-- @TODO: Get board colour from API -->
+        <!-- @TODO: Use board name throughout instead of board ID -->
+        <% ENV["TRELLO_BOARDS"].to_s.split(',').each do |board_id| %>
+    		<li data-row="1" data-col="1" data-sizex="1" data-sizey="2">
+              <div data-id="<%= board_id %>" data-view="List" data-title="Board '<%= board_id %>'" style="background-color: #23719f;"></div>
+              <i class="icon-trello icon-background"></i>
+            </li>
+        <% end %>
 
         <!-- Travis CI status -->
         <% ENV["TRAVIS_REPOS_PRO"].to_s.split(',').each do |repo_name| %>
