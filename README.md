@@ -20,6 +20,9 @@ In order to keep auth details and repo names out of this public repository, the 
 * `TRELLO_BOARDS` - Comma-separated list of Trello board IDs to display.
 * `TRELLO_DEVELOPER_KEY` - API key for Trello.
 * `TRELLO_MEMBER_TOKEN` - Member token for Trello.
+* `GITHUB_REPOS` - Comma-separated list of owner/repo names
+* `GITHUB_LOGIN` - Github username
+* `GITHUB_PASSWORD` - Github password
 
 *Note: This setup will eventually be moved into one or more configuration files.*
 

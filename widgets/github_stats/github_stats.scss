@@ -1,0 +1,43 @@
+.widget.widget-github-stats {
+  vertical-align: center;
+  background-color: #0097a7;
+  background-image: url("/assets/GitHub-Light.png");
+  background-size: 75%;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
+
+.widget-github-stats {
+  .label {
+    display: inline-block;
+    font-size: 1.1em;
+    text-align: right;
+  }
+  .label.right {
+    font-size: 2em;
+    font-weight: 200;
+  }
+}
+
+.count {
+  display: inline-block;
+  text-align: left;
+  font-size: 3em;
+  font-weight: 600;
+}
+
+.date {
+  display: inline-block;
+  font-size: 1em;
+  text-align: left;
+  font-weight: 200;
+}
+
+.activity {
+  text-align: center;
+  opacity: 0.6;
+}
+
+.commits {
+  text-align: center;
+}
