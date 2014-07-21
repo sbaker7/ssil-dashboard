@@ -15,10 +15,11 @@
         </li>
 
         <!-- Github -->
-        <!-- @TODO: Use environment variables -->
-        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-            <div data-id="ssilab/ssil-dashboard" data-view="GithubStats"></div>
-        </li>
+        <% ENV["GITHUB_REPOS"].to_s.split(',').each do |repo_name| %>
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+                <div data-id="<%= repo_name %>" data-view="GithubStats"></div>
+            </li>
+        <% end %>
 
         <!-- Clock -->
         <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">

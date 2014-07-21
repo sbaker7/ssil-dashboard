@@ -10,7 +10,7 @@ end
 
 github_repos  = ENV["GITHUB_REPOS"].to_s.split(',')
 
-SCHEDULER.every '1m', :first_in => 0 do |job|
+SCHEDULER.every '2m', :first_in => 0 do |job|
   github_repos.each do |name|
     
     r = Octokit::Client.new.repository(name)
