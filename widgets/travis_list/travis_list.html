@@ -1,0 +1,15 @@
+<h1 class="title" data-bind="title"></h1>
+
+<ul class="list-nostyle">
+  <li data-foreach-item="builds">
+    <span data-bind-class="item.status | append ' travis-list-status-icon'"></span>
+    <span class="travis-list-repo"      data-bind="item.repo_name"></span>
+    [<span class="travis-list-branch"   data-bind="item.branch"></span>,
+    <span class="travis-list-commit"    data-bind="item.commit_id"></span>]
+    <span data-bind="item.status"       data-bind-class="item.status | append '-text'"></span> in
+    <span class="travis-list-duration"  data-bind="item.duration_secs"></span>s
+  </li>
+</ul>
+
+<p class="more-info" data-bind="moreinfo"></p>
+<p class="updated-at" data-bind="updatedAtMessage"></p>

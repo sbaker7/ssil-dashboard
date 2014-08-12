@@ -47,18 +47,9 @@
             </li>
         <% end %>
 
-        <!-- Travis CI status -->
-        <% ENV["TRAVIS_REPOS_PRO"].to_s.split(',').each do |repo_name| %>
-            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-                <div data-id="travis-<%= repo_name %>" data-view="Travis" data-unordered="true" data-title="<%= repo_name %>"></div>
-            </li>
-        <% end %>
-
-        <!-- Travis CI status -->
-        <% ENV["TRAVIS_REPOS_ORG"].to_s.split(',').each do |repo_name| %>
-            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-                <div data-id="travis-<%= repo_name %>" data-view="Travis" data-unordered="true" data-title="<%= repo_name %>"></div>
-            </li>
-        <% end %>
+        <!-- Travis CI list -->
+        <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+            <div data-id="travis-list" data-view="TravisList" data-title="Travis List"></div>
+        </li>
     </ul>
 </div>
