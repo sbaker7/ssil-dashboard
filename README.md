@@ -23,6 +23,8 @@ In order to keep auth details and repo names out of this public repository, the 
 * `GITHUB_REPOS` - Comma-separated list of owner/repo names
 * `GITHUB_LOGIN` - Github username
 * `GITHUB_PASSWORD` - Github password
+* `PTV_DEVELOPER_KEY` - API key for PTV.
+* `PTV_SECURITY_KEY` - Security key provided by API.
 
 *Note: This setup will eventually be moved into one or more configuration files.*
 

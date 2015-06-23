@@ -1,0 +1,21 @@
+<img class="metro-logo" src="/assets/metro.jpg">
+<h1 class="station-name">Glenferrie Station</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th class="destination">Destination</th>
+            <th class="time">Mins to Depart</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-foreach-item="departures">
+            <td class="destination">
+                <span class="lcd" data-bind="item.display.title"></span>
+            </td>
+            <td class="time">
+                <span class="lcd" data-bind="item.display.mins_to_depart"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
