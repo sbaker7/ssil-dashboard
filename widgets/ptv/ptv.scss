@@ -1,0 +1,52 @@
+@font-face {
+  src: url('/fonts/lcd.ttf');
+  font-family: 'LCD';
+  font-style: normal;
+}
+
+table thead th, table thead td {
+    font-size: 0.8em;
+    &.destination {
+        text-align: left;
+        width: 50%;
+    }
+    &.time {
+        text-align: right;
+        width: 30%;
+    }
+}
+
+table th, table td {
+    padding: 0.5ex;
+    .lcd {
+        display: block;
+    }
+}
+
+.station-name {
+    font-family: "Helvetica Neue";
+    font-weight: lighter;
+    border-bottom: 1px solid white;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
+.widget-ptv {
+  background-color: #0077BE;
+}
+
+.lcd {
+    font-family: "LCD";
+    font-size: 2em;
+    background-color: #444;
+    color: #fff63e;
+    padding: 0 0.25ex;
+    border-radius: 0.25em;
+    text-shadow: 2px 2px rgba(255, 255, 0, 0.1);
+}
+
+.lcd.scroll {
+    white-space: nowrap;
+    -webkit-marquee: auto medium infinite scroll normal;
+    overflow-x: -webkit-marquee;
+}
