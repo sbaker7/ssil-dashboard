@@ -1,11 +1,13 @@
-<img class="metro-logo" src="/assets/metro.jpg">
-<h1 class="station-name">Glenferrie Station</h1>
-
+<div class="station-banner">
+    <img class="metro-logo" src="/assets/metro.jpg">
+    <h1 class="station-name">Glenferrie Station</h1>
+</div>
 <table>
     <thead>
         <tr>
             <th class="destination">Destination</th>
-            <th class="time">Mins to Depart</th>
+            <th class="time">Scheduled</th>
+            <th class="departsin">Mins</th>
         </tr>
     </thead>
     <tbody>
@@ -14,7 +16,10 @@
                 <span class="lcd" data-bind="item.display.title"></span>
             </td>
             <td class="time">
-                <span class="lcd" data-bind="item.display.mins_to_depart"></span>
+                <span class="lcd" data-bind="item.display.time"></span>
+            </td>
+            <td class="departsin">
+                <span class="lcd" data-bind="item.display.departsin"></span>
             </td>
         </tr>
     </tbody>
