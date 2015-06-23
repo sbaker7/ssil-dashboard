@@ -12,3 +12,4 @@ gem 'actionview'
 
 gem 'ptv_timetable', '0.0.2'
 gem 'geocoder', '1.2.9'
+gem 'activesupport', '4.1.4'
