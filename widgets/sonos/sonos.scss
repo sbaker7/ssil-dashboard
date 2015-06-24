@@ -1,0 +1,54 @@
+h1 {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.widget-sonos {
+    background-color: #30b379
+}
+
+.now-playing {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.playing-details {
+    flex: 2;
+    -webkit-flex: 2;
+    font-weight: bold;
+    padding: 0.5em;
+    text-align: left;
+
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-align-content: center;
+            align-content: center;
+
+    -webkit-justify-content: center;
+            justify-content: center;
+
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+
+    * {
+        width: 100%;
+    }
+}
+
+.title {
+    font-size: 2em;
+}
+
+.artist {
+    font-size: 1.5em;
+    opacity: 0.9;
+}
+
+img.album-art {
+    flex: 1;
+    -webkit-flex: 1;
+    border: 1px solid white;
+    border-radius: 0.5em;
+    width: 100%;
+    height: auto;
+}

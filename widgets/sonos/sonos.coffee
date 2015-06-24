@@ -1,0 +1,1 @@
+class Dashing.Sonos extends Dashing.Widget
