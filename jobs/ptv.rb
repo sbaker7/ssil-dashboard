@@ -1,8 +1,8 @@
 require 'ptv_timetable'
 require 'geocoder'
 
-DEV_KEY = ENV["PTV_DEVELOPER_KEY"] || "1000089"
-SEC_KEY = ENV["PTV_SECURITY_KEY"] || "f2faba58-ad71-11e3-8bed-0263a9d0b8a0"
+DEV_KEY = ENV["PTV_DEVELOPER_KEY"]
+SEC_KEY = ENV["PTV_SECURITY_KEY"]
 
 api = PtvTimetable::API.new(DEV_KEY, SEC_KEY)
 GLENFERRIE_STOP_ID = 1080

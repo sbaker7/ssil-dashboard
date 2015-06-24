@@ -1,11 +1,7 @@
 require 'dashing'
-require 'active_support/all'
-
 
 configure do
   set :auth_token, 'YOUR_AUTH_TOKEN'
-
-  Time.zone = 'Melbourne'
 
   helpers do
     def protected!
