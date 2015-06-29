@@ -1,0 +1,51 @@
+.widget-whereabouts {
+    background-color: #ddd;
+    * {
+        color: black;
+    }
+}
+
+h1.whereabouts {
+    font-size: 5em;
+    text-align: center;
+    font-family: "Open Sans";
+    width: 100%;
+    margin-top: 1.75em;
+}
+
+img.state-icon, img.person-icon {
+    border: 4px solid;
+}
+
+img.state-icon {
+    width: 2em;
+    height: 2em;
+    padding: 0.5em;
+    background-color: #fff;
+    border-radius: 2em;
+}
+
+img.person-icon {
+    width: 4em;
+    height: 4em;
+    border-radius: 4em;
+    &.late {
+        border-color: #FF5B0E;
+    }
+    &.sick {
+        border-color: #D31245;
+    }
+    &.home {
+        border-color: #30B379;
+    }
+}
+
+ul.person-list {
+    z-index: 1000;
+    display: fixed;
+    margin-bottom: 4em;
+    li {
+        display: inline-block;
+        padding: 1ex;
+    }
+}

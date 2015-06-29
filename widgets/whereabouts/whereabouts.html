@@ -1,0 +1,15 @@
+<h1 class="whereabouts icon-background" data-class="">#whereabouts</h1>
+<ul class="person-list">
+    <li><img class="state-icon" src="/assets/running-late.png"></li>
+    <li data-foreach-item="late">
+        <img class="person-icon late" data-bind-src="item.image_192">
+    </li>
+    <li><img class="state-icon" src="/assets/home.png"></li>
+    <li data-foreach-item="home">
+        <img class="person-icon home" data-bind-src="item.image_192">
+    </li>
+    <li><img class="state-icon" src="/assets/sick.png"></li>
+    <li data-foreach-item="sick">
+        <img class="person-icon sick" data-bind-src="item.image_192">
+    </li>
+</ul>

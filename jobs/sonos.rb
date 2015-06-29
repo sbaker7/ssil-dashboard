@@ -1,9 +1,9 @@
 require 'net/http'
 require 'json'
 
-GET_SONG_URL = ENV["SONOS_URL"]
+SONOS_URI = ENV["SONOS_URI"]
 SCHEDULER.every '2s', first_in: '1s' do |job|
-  uri = URI(GET_SONG_URL)
+  uri = URI(SONOS_URI)
   now_playing = JSON.parse Net::HTTP.get(uri)
   send_event('sonos', now_playing: now_playing)
 end

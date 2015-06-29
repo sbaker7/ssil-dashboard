@@ -1,0 +1,1 @@
+class Dashing.Whereabouts extends Dashing.Widget

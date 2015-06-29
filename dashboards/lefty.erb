@@ -9,52 +9,6 @@
 
 <div class="gridster">
     <ul>
-        <!-- SSIL Logo -->
-        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-            <div data-view="Image" data-image="/ssil-logo.png"></div>
-        </li>
 
-        <!-- Github -->
-        <% ENV["GITHUB_REPOS"].to_s.split(',').each do |repo_name| %>
-            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-                <div data-id="<%= repo_name %>" data-view="GithubStats"></div>
-            </li>
-        <% end %>
-
-        <!-- Clock -->
-        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-            <div data-view="Clock"></div>
-            <i class="icon-time icon-background"></i>
-        </li>
-
-        <!-- Weather -->
-        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-            <div data-id="weather" data-view="Weather"></div>
-        </li>
-
-        <!-- Seinfeld GIFs -->
-        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-            <div data-id="seinfeld" data-view="Seinfeld" ></div>
-        </li>
-
-        <!-- PTV trains -->
-        <li data-row="1" data-col="1" data-sizex="3" data-sizey="1">
-            <div data-id="ptv" data-view="Ptv"></div>
-        </li>
-
-        <!-- Trello boards -->
-        <!-- @TODO: Get board colour from API -->
-        <!-- @TODO: Use board name throughout instead of board ID -->
-        <% ENV["TRELLO_BOARDS"].to_s.split(',').each do |board_id| %>
-    		<li data-row="1" data-col="1" data-sizex="1" data-sizey="2">
-              <div data-id="<%= board_id %>" data-view="List" data-title="Board '<%= board_id %>'" style="background-color: #23719f;"></div>
-              <i class="icon-trello icon-background"></i>
-            </li>
-        <% end %>
-
-        <!-- Travis CI list -->
-<!--         <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-            <div data-id="travis-list" data-view="TravisList" data-title="Travis List"></div>
-        </li> -->
     </ul>
 </div>

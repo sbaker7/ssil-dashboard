@@ -25,6 +25,8 @@ In order to keep auth details and repo names out of this public repository, the 
 * `GITHUB_PASSWORD` - Github password
 * `PTV_DEVELOPER_KEY` - API key for PTV.
 * `PTV_SECURITY_KEY` - Security key provided by API.
+* `SONOS_URI` - URI for requesting Sonos Now Playing data
+* `WHEREABOUTS_URI` - URI for requesting [whereaboutsbot](https://github.com/alexcu-/whereabouts-bot) info
 
 *Note: This setup will eventually be moved into one or more configuration files.*
 
