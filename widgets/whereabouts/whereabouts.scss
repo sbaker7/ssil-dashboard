@@ -32,6 +32,13 @@ img.state-icon, img.person-icon {
     border: 10px solid;
 }
 
+li.state-header {
+    img {
+        margin-bottom: 1ex;
+    }
+    font-weight: bold;
+}
+
 img.state-icon {
     width: 2em;
     height: 2em;

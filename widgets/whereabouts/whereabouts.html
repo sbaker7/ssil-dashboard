@@ -1,32 +1,36 @@
 <h1 class="whereabouts icon-background">#whereabouts</h1>
 <div class="people-lists">
     <ul class="person-list late">
-        <li>
+        <li class="state-header">
             <img class="state-icon" src="/assets/late.png">
+            <p>LATE</p>
         </li>
         <li data-foreach-item="late">
             <img class="person-icon" data-bind-src="item.user.image_192">
         </li>
     </ul>
     <ul class="person-list home">
-        <li>
+        <li class="state-header">
             <img class="state-icon" src="/assets/home.png">
+            <p>HOME</p>
         </li>
         <li data-foreach-item="home">
             <img class="person-icon" data-bind-src="item.user.image_192">
         </li>
     </ul>
     <ul class="person-list sick">
-        <li>
+        <li class="state-header">
             <img class="state-icon" src="/assets/sick.png">
+            <p>SICK</p>
         </li>
         <li data-foreach-item="sick">
             <img class="person-icon" data-bind-src="item.user.image_192">
         </li>
     </ul>
     <ul class="person-list offsite">
-        <li>
+        <li class="state-header">
             <img class="state-icon" src="/assets/offsite.png">
+            <p>OFF-SITE</p>
         </li>
         <li data-foreach-item="offsite">
             <img class="person-icon" data-bind-src="item.user.image_192">
