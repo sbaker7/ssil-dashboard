@@ -1,15 +1,35 @@
-<h1 class="whereabouts icon-background" data-class="">#whereabouts</h1>
-<ul class="person-list">
-    <li><img class="state-icon" src="/assets/running-late.png"></li>
-    <li data-foreach-item="late">
-        <img class="person-icon late" data-bind-src="item.image_192">
-    </li>
-    <li><img class="state-icon" src="/assets/home.png"></li>
-    <li data-foreach-item="home">
-        <img class="person-icon home" data-bind-src="item.image_192">
-    </li>
-    <li><img class="state-icon" src="/assets/sick.png"></li>
-    <li data-foreach-item="sick">
-        <img class="person-icon sick" data-bind-src="item.image_192">
-    </li>
-</ul>
+<h1 class="whereabouts icon-background">#whereabouts</h1>
+<div class="people-lists">
+    <ul class="person-list late">
+        <li>
+            <img class="state-icon" src="/assets/late.png">
+        </li>
+        <li data-foreach-item="late">
+            <img class="person-icon" data-bind-src="item.user.image_192">
+        </li>
+    </ul>
+    <ul class="person-list home">
+        <li>
+            <img class="state-icon" src="/assets/home.png">
+        </li>
+        <li data-foreach-item="home">
+            <img class="person-icon" data-bind-src="item.user.image_192">
+        </li>
+    </ul>
+    <ul class="person-list sick">
+        <li>
+            <img class="state-icon" src="/assets/sick.png">
+        </li>
+        <li data-foreach-item="sick">
+            <img class="person-icon" data-bind-src="item.user.image_192">
+        </li>
+    </ul>
+    <ul class="person-list offsite">
+        <li>
+            <img class="state-icon" src="/assets/offsite.png">
+        </li>
+        <li data-foreach-item="offsite">
+            <img class="person-icon" data-bind-src="item.user.image_192">
+        </li>
+    </ul>
+</div>

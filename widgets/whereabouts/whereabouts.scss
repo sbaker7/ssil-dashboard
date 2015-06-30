@@ -1,3 +1,8 @@
+$late-color: #FF5B0E;
+$sick-color: #D31245;
+$home-color: #30B379;
+$offsite-color: #0581FA;
+
 .widget-whereabouts {
     background-color: #ddd;
     * {
@@ -5,46 +10,87 @@
     }
 }
 
+.state-legend {
+    top: 2em;
+    position: absolute;
+    width: 100%;
+    img.state-icon {
+        margin: 0 2ex;
+    }
+}
+
 h1.whereabouts {
     font-size: 5em;
     text-align: center;
     font-family: "Open Sans";
-    width: 100%;
-    margin-top: 1.75em;
+    top: initial !important;
+    bottom: 0 !important;
+    height: auto !important;
 }
 
 img.state-icon, img.person-icon {
-    border: 4px solid;
+    border: 10px solid;
 }
 
 img.state-icon {
     width: 2em;
     height: 2em;
     padding: 0.5em;
-    background-color: #fff;
     border-radius: 2em;
+    &[src*="late"] {
+        background-color: lighten($late-color, 10%);
+    }
+    &[src*="sick"] {
+        background-color: lighten($sick-color, 10%);
+    }
+    &[src*="home"] {
+        background-color: lighten($home-color, 10%);
+    }
+    &[src*="offsite"] {
+        background-color: lighten($offsite-color, 10%);
+    }
 }
 
 img.person-icon {
-    width: 4em;
-    height: 4em;
-    &.late {
-        border-color: #FF5B0E;
-    }
-    &.sick {
-        border-color: #D31245;
-    }
-    &.home {
-        border-color: #30B379;
-    }
+    max-width: 60%;
+}
+
+.people-lists {
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
 }
 
 ul.person-list {
-    z-index: 1000;
-    display: fixed;
-    margin-bottom: 4em;
+    flex: 1;
+    -webkit-flex: 1;
+    margin: 0 1ex;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-flex-flow: center;
+    flex-flow: center;
+    &.late li img.person-icon {
+        border-color: $late-color;
+    }
+    &.sick li img.person-icon {
+        border-color: $sick-color;
+    }
+    &.home li img.person-icon {
+        border-color: $home-color;
+    }
+    &.offsite li img.person-icon {
+        border-color: $offsite-color;
+    }
     li {
-        display: inline-block;
-        padding: 1ex;
+        text-align: center;
+        margin-bottom: 1em;
     }
 }
