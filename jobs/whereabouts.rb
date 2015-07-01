@@ -1,7 +1,7 @@
 require 'net/http'
 require 'json'
 
-WHEREABOUTS_URI = "http://128.199.89.147:3000/states" #ENV["WHEREABOUTS_URI"]
+WHEREABOUTS_URI = ENV["WHEREABOUTS_URI"]
 SCHEDULER.every '10s', first_in: '1s' do |job|
   uri = URI(WHEREABOUTS_URI)
   whereabouts_data = JSON.parse Net::HTTP.get(uri)
