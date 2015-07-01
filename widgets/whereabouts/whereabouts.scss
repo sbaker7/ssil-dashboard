@@ -2,6 +2,7 @@ $late-color: #FF5B0E;
 $sick-color: #D31245;
 $home-color: #30B379;
 $offsite-color: #0581FA;
+$out-color: #DEE928;
 
 .widget-whereabouts {
     background-color: #ddd;
@@ -56,6 +57,9 @@ img.state-icon {
     &[src*="offsite"] {
         background-color: lighten($offsite-color, 10%);
     }
+    &[src*="out"] {
+        background-color: lighten($out-color, 10%);
+    }
 }
 
 img.person-icon {
@@ -95,6 +99,9 @@ ul.person-list {
     }
     &.offsite li img.person-icon {
         border-color: $offsite-color;
+    }
+    &.out li img.person-icon {
+        border-color: $out-color;
     }
     li {
         text-align: center;

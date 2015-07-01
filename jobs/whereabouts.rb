@@ -10,6 +10,7 @@ SCHEDULER.every '10s', first_in: '1s' do |job|
   home = whereabouts_data['working_at_home']
   late = whereabouts_data['running_late']
   offsite = whereabouts_data['offsite']
+  out = whereabouts_data['out_of_office']
 
-  send_event('whereabouts', sick: sick, home: home, late: late, offsite: offsite)
+  send_event('whereabouts', sick: sick, home: home, late: late, offsite: offsite, out: out_of_office)
 end
