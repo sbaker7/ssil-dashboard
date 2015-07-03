@@ -1,13 +1,21 @@
 require 'dashing'
+require 'json'
 
 configure do
-  set :auth_token, 'YOUR_AUTH_TOKEN'
+  set :auth_token, 'UuTx8umLwoy58itKJrcV0bsi'
 
   helpers do
     def protected!
      # Put any authentication code you want in here.
      # This method is run before accessing any resource.
     end
+  end
+
+  before '/widgets/keen' do
+    request.params["auth_token"] = request.params["token"]
+    request.body.string = request.params.to_json
+
+    puts request.body.string
   end
 end
 
