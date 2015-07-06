@@ -4,6 +4,10 @@ require 'geocoder'
 DEV_KEY = ENV["PTV_DEVELOPER_KEY"]
 SEC_KEY = ENV["PTV_SECURITY_KEY"]
 
+unless DEV_KEY or SEC_KEY
+  puts "\e[33mThe PTV URI environment variables seem to be missing\e[0m"
+else
+
 api = PtvTimetable::API.new(DEV_KEY, SEC_KEY)
 GLENFERRIE_STOP_ID = 1080
 EXPRESS_LIMIT = 4
@@ -95,4 +99,6 @@ SCHEDULER.every '1m', first_in: '1s' do |job|
   end
   reduced_departures = reduced_departures.sort_by { | departure | departure[:time][:time_timetable] }
   send_event('ptv', departures: reduced_departures)
+end
+
 end
