@@ -14,8 +14,6 @@ configure do
   before '/widgets/keen' do
     request.params["auth_token"] = request.params["token"]
     request.body.string = request.params.to_json
-
-    puts request.body.string
   end
 end
 

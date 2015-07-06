@@ -1,9 +1,6 @@
 <h1 class="keen icon-background">#keen</h1>
 <img width="300" height="300" src="/assets/keen/keen_watch.png">
-<div class="people-list">
-    <ul>
-        <li data-foreach-item="keen">
-            <img class="person-icon" data-bind-src="item.user.image_192">
-        </li>
-    </ul>
+<h2 class="keen-count" data-bind="keenCount" data-hideif="empty"></h2>
+<div class="who-keened wrap-center">
+    <h3 class="who-keened" data-bind="whosKeen" data-hideif="empty"></h3>
 </div>
