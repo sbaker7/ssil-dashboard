@@ -4,7 +4,7 @@ require 'geocoder'
 DEV_KEY = ENV["PTV_DEVELOPER_KEY"]
 SEC_KEY = ENV["PTV_SECURITY_KEY"]
 
-unless DEV_KEY or SEC_KEY
+unless (DEV_KEY and SEC_KEY)
   puts "\e[33mThe PTV URI environment variables seem to be missing\e[0m"
 else
 
