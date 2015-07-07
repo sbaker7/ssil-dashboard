@@ -1,6 +1,6 @@
 class Dashing.Keen extends Dashing.Widget
   # How many keen sound effects there are in /assets/keen
-  KEEN_SOUNDS = 29
+  KEEN_SOUNDS = 10
 
   # How often to clear the keens, in mins
   CLEAR_KEEN = 30
