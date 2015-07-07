@@ -1,6 +1,6 @@
 class Dashing.Keen extends Dashing.Widget
   # How many keen sound effects there are in /assets/keen
-  KEEN_SOUNDS = 40
+  KEEN_SOUNDS = 29
 
   # How often to clear the keens, in mins
   CLEAR_KEEN = 30
@@ -18,9 +18,11 @@ class Dashing.Keen extends Dashing.Widget
     @set 'empty', true
     @set 'keenCount', 0
     @set 'whosKeen',  ''
+    @set 'lastKeen', ''
 
   ready: ->
     # Clear the keens object every CLEAR_KEEN mins
+    @clearKeens()
     @setupKeens()
 
   onData: (data) ->
@@ -32,6 +34,7 @@ class Dashing.Keen extends Dashing.Widget
     @set 'empty', false
     @set 'keenCount', Object.keys(keens).length
     @set 'whosKeen' , "@" + whosKeen
+    @set 'lastKeen', moment().format('h:mm a')
     # Reset the clearKeens interval
     @setupKeens()
     # Play the keen sound
