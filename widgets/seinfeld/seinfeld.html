@@ -1,2 +1,23 @@
-<iframe id="seinfeld-gifs" src="http://redditp.com/r/seinfeldgifs/"></iframe>
-<h1>Seinfeld Gifs #erryday</h1>
+<div id="_giphy_tv"></div>
+<script>
+    function unTagify(str) {
+        return str.replace(/\-/, ' ');
+    }
+    // Add more.....
+    var possibleGifs = [
+        'seinfeld',
+        'home-alone',
+        'the-simpsons',
+        'funny',
+        'stupid',
+        'minions'
+    ];
+    setInterval(initiateGif, 60 * 60 * 3 * 1000);
+    function initiateGif() {
+        _giphy_tv_tag=possibleGifs[Math.floor(Math.random() * possibleGifs.length)];
+        var g = document.createElement('script'); g.type = 'text/javascript'; g.async = true; g.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'giphy.com/static/js/widgets/tv.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(g, s);
+        document.getElementById('giffyTitle').textContent = unTagify(_giphy_tv_tag) + " gifs #erryday";
+    }
+    initiateGif();
+</script>
+<h1 id="giffyTitle">Loading ze gifs...</h1>

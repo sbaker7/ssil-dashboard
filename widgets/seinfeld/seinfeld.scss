@@ -1,12 +1,14 @@
-#seinfeld-gifs {
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
-    border: none;
+#_giphy_tv {
+    margin-bottom: 10px;
+    background-color: black;
+    .cleanslate {
+        margin: 0 auto !important;
+        width: 66% !important;
+    }
 }
 
 .widget-seinfeld {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    vertical-align: top;
+    padding: 0 !important;
     background-color: #04C2DE;
 }
