@@ -8,6 +8,8 @@ unless (DEV_KEY and SEC_KEY)
   puts "\e[33mThe PTV URI environment variables seem to be missing\e[0m"
 else
 
+dbg = false
+
 api = PtvTimetable::API.new(DEV_KEY, SEC_KEY)
 GLENFERRIE_STOP_ID = 1080
 EXPRESS_LIMIT = 4
@@ -77,25 +79,25 @@ SCHEDULER.every '1m', first_in: '1s' do |job|
   # - to_city: they need to be either going up (to city) or down (out from city)
   departures.group_by { | departure | [departure[:time][:timetable], departure[:express], departure[:to_city], departure[:time][:line_id]] }.values.each do | group |
     # if there is only one train leaving at this time then that's okay
-    puts ">>>>"
+    puts ">>>>" if dbg
     if group.length == 1
-      puts group
+      puts group if dbg
       # this better not be Camberwell! Camberwell is not a terminus!
       if group.first[:destination_name] == "Camberwell"
-        puts "<<<< not resolving as Camberwell is not a terminus!"
+        puts "<<<< not resolving as Camberwell is not a terminus!" if dbg
         next
       end
       reduced_departures.push group.first
-      puts "<<<< auto resolved #{group.first[:time][:timetable]} to #{group.first[:destination_name]}"
+      puts "<<<< auto resolved #{group.first[:time][:timetable]} to #{group.first[:destination_name]}" if dbg
       next
     end
     # otherwise to resolve the lilydale/belgrave/ringwood issue, we will choose
     # the departure who travel's the furtherest (longest destination distance)
     sorted_by_distance = group.sort_by { |departure| departure[:destination_distance] }
-    puts sorted_by_distance
+    puts sorted_by_distance if dbg
     furtherest_destination_departure = sorted_by_distance.last
     reduced_departures.push furtherest_destination_departure
-    puts "<<<< resolved #{group.first[:time][:timetable]} to #{furtherest_destination_departure[:destination_name]}"
+    puts "<<<< resolved #{group.first[:time][:timetable]} to #{furtherest_destination_departure[:destination_name]}" if dbg
   end
   reduced_departures = reduced_departures.sort_by { | departure | departure[:time][:time_timetable] }
   send_event('ptv', departures: reduced_departures)
