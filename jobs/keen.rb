@@ -8,7 +8,7 @@ class Keeners
     @list[user_id] = { time: Time.now.to_i, name: who_keened }
     Thread.kill @clear unless @clear.nil?
     @clear = Thread.new do
-      sleep 5#@timeout * 60
+      sleep @timeout * 60
       # Clear the keeners after 30 mins
       @list = {}
       ping_keen self
