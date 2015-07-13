@@ -1,0 +1,59 @@
+.widget-chompy {
+    padding-bottom: 0 !important;
+}
+
+#chompyContent {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &.static {
+        background-image: url('/assets/chompy/static.jpg');
+    }
+    &.playing {
+        background-image: url('/assets/chompy/playing.gif');
+    }
+}
+
+h1.chompy {
+    font-size: 3em;
+    text-align: center;
+    font-family: "Open Sans";
+    top: initial;
+    bottom: 0;
+    height: auto;
+}
+
+h2.chompy-count {
+    position: absolute;
+    top: 0;
+    right: 0.5ex;
+    font-size: 3.2em;
+}
+
+.chompy-info {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: initial;
+    left: 0;
+    bottom: 1em;
+}
+
+.chompy-info h3 {
+    background-color: rgba(0,0,0,0.55);
+    padding-top: 0.25ex;
+    padding-bottom: 0.5ex;
+    span {
+        display: block;
+    }
+    [data-bind="whosChompy"] {
+        font-size: 1.5em;
+    }
+    [data-bind="lastChompy"] {
+        font-size: 1em;
+    }
+}

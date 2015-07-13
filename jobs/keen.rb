@@ -1,7 +1,7 @@
 class Keeners
   def initialize
     @list = {}
-    @timeout = 30 # mins
+    @timeout = 10 # mins
     @clear = nil
   end
   def add(user_id, who_keened)
@@ -9,7 +9,6 @@ class Keeners
     Thread.kill @clear unless @clear.nil?
     @clear = Thread.new do
       sleep @timeout * 60
-      # Clear the keeners after 30 mins
       @list = {}
       ping_keen self
     end
