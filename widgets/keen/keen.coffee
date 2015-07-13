@@ -6,9 +6,9 @@ class Dashing.Keen extends Dashing.Widget
     @set 'empty', yes
   onData: (data) ->
     noKeeners = data.keen_count is 0
+    console.log "KEEN!", data
     @set 'empty', noKeeners
     return if noKeeners
-    console.log data.keener.time
     @set 'keenCount', data.keen_count
     @set 'whosKeen' , '@' + data.keener.name
     @set 'lastKeen', moment.unix(data.keener.time).format('h:mm a')

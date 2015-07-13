@@ -8,10 +8,10 @@ class Keeners
     @list[user_id] = { time: Time.now.to_i, name: who_keened }
     Thread.kill @clear unless @clear.nil?
     @clear = Thread.new do
-      sleep @timeout * 60
+      sleep 5#@timeout * 60
       # Clear the keeners after 30 mins
       @list = {}
-      keeners.ping_keen
+      ping_keen self
     end
     @list[user_id]
   end
@@ -32,13 +32,14 @@ class Keeners
       return nil
     end
   end
-  def ping_keen(play_sound = false)
-    Thread.new do
-      send_event('keen', { keener: last, play_sound: play_sound, keen_count: @list.length } )
-    end
-  end
 end
 keeners = Keeners.new
+def ping_keen(keeners, play_sound = false)
+  Thread.new do
+    puts "Sending keen event"
+    send_event('keen', { keener: keeners.last, play_sound: play_sound, keen_count: keeners.list.length } )
+  end
+end
 before '/widgets/keen' do
   # Set the auth token
   request.params["auth_token"] = request.params["token"]
@@ -63,7 +64,7 @@ get '/widgets/keen' do
       else
         response.body = ":caffkeen:: " << keeners.to_s
       end
-      keeners.ping_keen true
+      ping_keen keeners, true
     end
   when 'clear'
     unless keeners.list.keys.include? user_id
@@ -71,7 +72,7 @@ get '/widgets/keen' do
     else
       keeners.remove user_id
       response.body = "You un-:caffkeen:'ed!"
-      keeners.ping_keen
+      ping_keen keeners
     end
   when 'who'
     if keeners.list.length > 0
