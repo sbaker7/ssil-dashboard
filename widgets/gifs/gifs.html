@@ -1,0 +1,31 @@
+<iframe id="gifsIframe"></iframe>
+<script>
+    function unTagify(str) {
+        return str.replace(/\-/, ' ');
+    }
+    // Add more.....
+    var possibleGifs = [
+        'seinfeld',
+        'home-alone',
+        'the-simpsons',
+        'funny',
+        'stupid',
+        'minions',
+        'curb-your-enthusiasm',
+        'silicon-valley',
+        'peep-show'
+    ];
+    setInterval(initiateGif, 6000);
+    var lastGif = '',
+        gifTag  = '';
+    function initiateGif() {
+        while (gifTag == lastGif) {
+            gifTag = possibleGifs[Math.floor(Math.random() * possibleGifs.length)];
+        }
+        lastGif = gifTag;
+        document.getElementById('gifsIframe').src = "http://tv.giphy.com/" + gifTag;
+        document.getElementById('gifsTitle').textContent = unTagify(gifTag) + " gifs #erryday";
+    }
+    initiateGif();
+</script>
+<h1 id="gifsTitle">Loading ze gifs...</h1>
