@@ -36,7 +36,6 @@ end
 keeners = Keeners.new
 def ping_keen(keeners, play_sound = false)
   Thread.new do
-    puts "Sending keen event"
     send_event('keen', { keener: keeners.last, play_sound: play_sound, keen_count: keeners.list.length } )
   end
 end
