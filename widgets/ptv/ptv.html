@@ -11,15 +11,37 @@
         </tr>
     </thead>
     <tbody>
-        <tr data-foreach-item="departures">
+        <tr data-foreach-item="upTrains">
             <td class="destination">
-                <span class="lcd" data-bind="item.display.title"></span>
+                <span class="lcd" data-bind="item.title"></span>
             </td>
             <td class="time">
-                <span class="lcd" data-bind="item.display.time"></span>
+                <span class="lcd" data-bind="item.time"></span>
             </td>
             <td class="departsin">
-                <span class="lcd" data-bind="item.display.departsin"></span>
+                <span class="lcd" data-bind="item.departsin"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table>
+    <thead>
+        <tr>
+            <th class="destination">Destination</th>
+            <th class="time">Scheduled</th>
+            <th class="departsin">Mins</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-foreach-item="downTrains">
+            <td class="destination">
+                <span class="lcd" data-bind="item.title"></span>
+            </td>
+            <td class="time">
+                <span class="lcd" data-bind="item.time"></span>
+            </td>
+            <td class="departsin">
+                <span class="lcd" data-bind="item.departsin"></span>
             </td>
         </tr>
     </tbody>
