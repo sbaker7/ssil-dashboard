@@ -24,21 +24,24 @@ h1 {
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-marquee: auto medium infinite scroll normal;
-        overflow-x: -webkit-marquee;
     * {
         width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        padding-left: 0.2ex;
+        padding-right: 0.2ex;
+        text-overflow: ellipsis;
     }
 }
 
 .title {
-    font-size: 2.3em;
+    font-size: 2em;
     white-space: nowrap;
     font-weight: bolder;
 }
 
 .artist {
-    font-size: 1.8em;
+    font-size: 1.5em;
 }
 
 img.album-art {
