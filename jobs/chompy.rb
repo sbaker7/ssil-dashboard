@@ -1,3 +1,7 @@
+require 'net/http'
+
+CHOMPY_WEBHOOK_URI = ENV['CHOMPY_WEBHOOK_URI']
+
 class Chompyers
   def initialize
     @list = {}
@@ -5,7 +9,7 @@ class Chompyers
     @clear = nil
   end
   def add(user_id, who_chompyed)
-    @list[user_id] = { time: Time.now.to_i, name: who_chompyed }
+    @list[user_id] = { time: Time.now.to_i, name: who_chompyed, id: user_id }
     Thread.kill @clear unless @clear.nil?
     @clear = Thread.new do
       sleep @timeout * 60
@@ -36,7 +40,13 @@ end
 chompyers = Chompyers.new
 def ping_chompy(chompyers, play_sound = false)
   Thread.new do
-    send_event('chompy', { chompyer: chompyers.last, play_sound: play_sound, chompy_count: chompyers.list.length } )
+    if play_sound
+      uri = URI.parse CHOMPY_WEBHOOK_URI
+      chompyer = chompyers.last
+      msg = { text: "<!channel>: <@" << chompyer[:id] << "> is :caffkeen:" }.to_json
+      response = Net::HTTP.post_form(uri, {"payload" => msg})
+    end
+    send_event('keen', { chompyer: chompyer, play_sound: play_sound, chompy_count: chompyers.list.length } )
   end
 end
 before '/widgets/chompy' do

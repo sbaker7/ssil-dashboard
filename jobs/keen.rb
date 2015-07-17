@@ -1,3 +1,8 @@
+require 'net/http'
+require 'json'
+
+KEEN_WEBHOOK_URI = ENV['KEEN_WEBHOOK_URI']
+
 class Keeners
   def initialize
     @list = {}
@@ -5,7 +10,7 @@ class Keeners
     @clear = nil
   end
   def add(user_id, who_keened)
-    @list[user_id] = { time: Time.now.to_i, name: who_keened }
+    @list[user_id] = { time: Time.now.to_i, name: who_keened, id: user_id }
     Thread.kill @clear unless @clear.nil?
     @clear = Thread.new do
       sleep @timeout * 60
@@ -35,7 +40,13 @@ end
 keeners = Keeners.new
 def ping_keen(keeners, play_sound = false)
   Thread.new do
-    send_event('keen', { keener: keeners.last, play_sound: play_sound, keen_count: keeners.list.length } )
+    if play_sound
+      uri = URI.parse KEEN_WEBHOOK_URI
+      keener = keeners.last
+      msg = { text: "<!channel>: <@" << keener[:id] << "> is :caffkeen:" }.to_json
+      response = Net::HTTP.post_form(uri, {"payload" => msg})
+    end
+    send_event('keen', { keener: keener, play_sound: play_sound, keen_count: keeners.list.length } )
   end
 end
 before '/widgets/keen' do
