@@ -43,7 +43,7 @@ def ping_keen(keeners, play_sound = false)
     if play_sound
       uri = URI.parse KEEN_WEBHOOK_URI
       keener = keeners.last
-      msg = { text: "<!channel>: <@" << keener[:id] << "> is :caffkeen:" }.to_json
+      msg = { text: "<@" << keener[:id] << "> is :caffkeen:" }.to_json
       response = Net::HTTP.post_form(uri, {"payload" => msg})
     end
     send_event('keen', { keener: keener, play_sound: play_sound, keen_count: keeners.list.length } )
