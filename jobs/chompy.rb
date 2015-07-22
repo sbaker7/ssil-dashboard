@@ -43,7 +43,7 @@ def ping_chompy(chompyers, play_sound = false)
     if play_sound
       uri = URI.parse CHOMPY_WEBHOOK_URI
       chompyer = chompyers.last
-      msg = { text: "<!channel>: <@" << chompyer[:id] << "> is :caffkeen:" }.to_json
+      msg = { text: "<!channel>: <@" << chompyer[:id] << "> is :chompy:" }.to_json
       response = Net::HTTP.post_form(uri, {"payload" => msg})
     end
     send_event('keen', { chompyer: chompyer, play_sound: play_sound, chompy_count: chompyers.list.length } )
