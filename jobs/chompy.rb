@@ -2,7 +2,7 @@ require 'net/http'
 
 CHOMPY_WEBHOOK_URI = ENV['CHOMPY_WEBHOOK_URI']
 
-class chompiers
+class Chompiers
   def initialize
     @list = {}
     @timeout = 30 # mins
