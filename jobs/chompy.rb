@@ -37,7 +37,7 @@ class Chompiers
     end
   end
 end
-chompiers = chompiers.new
+chompiers = Chompiers.new
 def ping_chompy(chompiers, play_sound = false)
   Thread.new do
     if play_sound
