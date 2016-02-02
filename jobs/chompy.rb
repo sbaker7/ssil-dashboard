@@ -37,7 +37,7 @@ class Chompiers
     end
   end
 end
-chompiers = chompiers.new
+chompiers = Chompiers.new
 def ping_chompy(chompiers, play_sound = false)
   Thread.new do
     if play_sound
@@ -46,7 +46,7 @@ def ping_chompy(chompiers, play_sound = false)
       msg = { text: "<@" << chompier[:id] << "> is :chompy:" }.to_json
       response = Net::HTTP.post_form(uri, {"payload" => msg})
     end
-    send_event('keen', { chompier: chompier, play_sound: play_sound, chompy_count: chompiers.list.length } )
+    send_event('chompy', { chompier: chompier, play_sound: play_sound, chompy_count: chompiers.list.length } )
   end
 end
 before '/widgets/chompy' do
