@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 require 'pony'
 
-VISITOR_WEBHOOK_URI = "https://hooks.slack.com/services/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"
+VISITOR_WEBHOOK_URI = env[VISITOR_WEBHOOK_URI]
 
 def send_calendar_event user_id, event_dets
   Thread.new do
