@@ -2,3 +2,4 @@
 history.yml
 *.orig
 dashing-keys.sh
+*.god
