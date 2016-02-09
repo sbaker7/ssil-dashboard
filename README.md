@@ -31,9 +31,4 @@ In order to keep auth details and repo names out of this public repository, the 
 *Note: This setup will eventually be moved into one or more configuration files.*
 
 ### Running the server
-Run `bundle` to resolve gem dependencies.
-
-If running with Whereabouts bot, start with `god -c ssil-dashboard.god -D`, otherwise start with `god -c dashboard.god -D`
-
-Note: If an error occurs during intital installation, try bundle update. Some directories may need to be changed in the god files to suit where your repositories are saved.
-
+Run `bundle` to resolve gem dependencies, then run `dashing start` to run the server.
