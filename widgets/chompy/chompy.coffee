@@ -6,14 +6,14 @@ class Dashing.Chompy extends Dashing.Widget
     @set 'empty', yes
     @set 'chompyImageState', 'static'
   onData: (data) ->
-    noChompyers = data.chompy_count is 0
+    noChompiers = data.chompy_count is 0
     console.log "CHOMPY!", data
-    @set 'empty', noChompyers
-    @set 'chompyImageState', if noChompyers then 'static' else 'playing'
-    return if noChompyers
+    @set 'empty', noChompiers
+    @set 'chompyImageState', if noChompiers then 'static' else 'playing'
+    return if noChompiers
     @set 'chompyCount', data.chompy_count
-    @set 'whosChompy' , '@' + data.chompyer.name
-    @set 'lastChompy', moment.unix(data.chompyer.time).format('h:mm a')
+    @set 'whosChompy' , '@' + data.chompier.name
+    @set 'lastChompy', moment.unix(data.chompier.time).format('h:mm a')
     return unless data.play_sound
     # Play the chompy sound
     chompySound = Math.floor(Math.random() * CHOMPY_SOUNDS)
