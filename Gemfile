@@ -10,6 +10,7 @@ gem "travis"
 gem 'octokit'
 gem 'actionview'
 gem 'pony'
+gem 'god'
 
 gem 'ptv_timetable', '0.0.2'
 gem 'geocoder', '1.2.9'
